@@ -6,6 +6,8 @@
 
 거북이에게 100m의 어드밴티지가 주어지고 결승선은 111.11m. 아킬레우스는 10m/s로 달리지만, 결승선 직전에서 모든 클릭은 남은 격차를 절반으로 나눌 뿐 — 결코 0이 되지 않는다. 마지막엔 비디오 판독으로 거북이 코끝과 아킬레우스 발끝의 간발의 차이를 확대해 보여준다.
 
+**🎮 Live demo · 라이브 데모**: <https://kkaengemine.github.io/achilles-and-the-tortoise/>
+
 [![tests](https://img.shields.io/badge/tests-10%2F10-success)]()
 [![typescript](https://img.shields.io/badge/typescript-strict-blue)]()
 [![pixi](https://img.shields.io/badge/pixi.js-v8-ff007f)]()
