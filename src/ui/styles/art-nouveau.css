@@ -1,0 +1,176 @@
+/*
+ * Mucha-flavored Art Nouveau frame approximated with pure CSS gradients
+ * and SVG ornaments. Ships without raster assets so M1 is playable; the
+ * frame pieces can later be replaced with PNG sets via border-image.
+ */
+
+.an-frame {
+  position: relative;
+  padding: clamp(16px, 4vw, 36px) clamp(16px, 4vw, 36px);
+  background:
+    linear-gradient(180deg, rgba(245, 239, 226, 0.04) 0%, rgba(245, 239, 226, 0) 100%),
+    radial-gradient(ellipse at top, rgba(245, 217, 122, 0.08) 0%, transparent 70%);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 12px;
+  box-shadow: var(--frame-shadow), var(--frame-glow);
+}
+
+.an-frame::before,
+.an-frame::after {
+  content: '';
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'><g fill='none' stroke='%23d4af37' stroke-width='1.4' stroke-linecap='round'><path d='M4 84 C 14 60, 30 50, 60 44 C 76 41, 82 30, 84 8'/><path d='M4 78 C 18 56, 42 44, 78 38'/><circle cx='62' cy='44' r='3' fill='%23f5d97a'/><circle cx='52' cy='52' r='2' fill='%23f5d97a'/><circle cx='44' cy='62' r='2' fill='%23f5d97a'/><path d='M70 16 C 64 14, 58 18, 60 24 C 56 22, 50 26, 54 32'/><path d='M14 70 C 22 68, 28 72, 28 80'/></g></svg>");
+}
+
+.an-frame::before {
+  top: -10px;
+  left: -10px;
+}
+.an-frame::after {
+  bottom: -10px;
+  right: -10px;
+  transform: rotate(180deg);
+}
+
+.an-frame-tr,
+.an-frame-bl {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'><g fill='none' stroke='%23d4af37' stroke-width='1.4' stroke-linecap='round'><path d='M84 84 C 74 60, 58 50, 28 44 C 12 41, 6 30, 4 8'/><path d='M84 78 C 70 56, 46 44, 10 38'/><circle cx='26' cy='44' r='3' fill='%23f5d97a'/><circle cx='36' cy='52' r='2' fill='%23f5d97a'/><circle cx='44' cy='62' r='2' fill='%23f5d97a'/></g></svg>");
+}
+.an-frame-tr {
+  top: -10px;
+  right: -10px;
+}
+.an-frame-bl {
+  bottom: -10px;
+  left: -10px;
+  transform: rotate(180deg);
+}
+
+/* Ionic button */
+.ionic-btn {
+  --bg: linear-gradient(180deg, var(--marble-100) 0%, var(--marble-200) 100%);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.85em 1.6em;
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: clamp(13px, 1.6vw, 15px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  background: var(--bg);
+  border: 1.5px solid var(--gold-500);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -2px 6px rgba(58, 47, 18, 0.18),
+    0 4px 14px rgba(28, 23, 12, 0.45);
+}
+.ionic-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 6px rgba(58, 47, 18, 0.18),
+    0 8px 22px rgba(28, 23, 12, 0.5),
+    0 0 18px rgba(245, 217, 122, 0.35);
+}
+.ionic-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.96);
+}
+.ionic-btn--ghost {
+  --bg: transparent;
+  color: var(--marble-100);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: none;
+}
+.ionic-btn--ghost:hover {
+  background: rgba(245, 217, 122, 0.08);
+}
+
+/* Marble panel */
+.marble-panel {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #1a160d 0%, #0e0b06 100%);
+  color: var(--marble-100);
+  border-radius: 10px;
+}
+
+/* Display number / Sigma */
+.sigma-num {
+  font-family: var(--serif-display);
+  font-weight: 700;
+  font-size: clamp(48px, 9vw, 96px);
+  letter-spacing: 0.06em;
+  background: linear-gradient(180deg, #fef3c0 0%, #d4af37 60%, #8a7b3a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 18px rgba(212, 175, 55, 0.25);
+}
+
+.label-tiny {
+  font-family: var(--serif-display);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  opacity: 0.85;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  color: var(--gold-700);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin: 0.6em 0;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.55) 50%,
+    transparent 100%
+  );
+}
+
+/* Ionic column-cap pseudo-decoration */
+.column-cap {
+  position: relative;
+  height: 18px;
+}
+.column-cap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 100%, var(--gold-300) 0 4px, transparent 5px),
+    radial-gradient(circle at 92% 100%, var(--gold-300) 0 4px, transparent 5px),
+    linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+}
